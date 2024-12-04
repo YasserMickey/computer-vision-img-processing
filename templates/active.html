@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>MDX - CST4060 - CW3</title>
+
+    <meta name="description" content="Source code generated using layoutit.com">
+    <meta name="author" content="LayoutIt!">
+
+
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static', filename='css/styles.css') }}">
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static', filename='css/bootstrap.min.css') }}">
+
+
+
+
+  </head>
+<body>
+
+  
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+
+
+
+                                <!-- Image and text -->
+                <nav class="navbar navbar-light bg-light table-bordered .padding-top:90px" style="background-color:#d3e0ee;">
+                  <div class="container" style="width: 100%;">
+                    <div class="row">
+                      <div class="col" style="text-align: left;margin-top: 20px;">
+                        <a class="navbar-brand" href="#">
+                        <span > CST4060 - Yasser Nabil</span>
+                      </div>
+                      <div class="col" style="text-align: center;margin-top: 20px;">
+                        <a class="navbar-brand" href="#">
+                        <span >Edge Detection & Segmentation (CW3)</span>
+                      </div>
+                      <div class="col" style="text-align: right;">
+                        <img src="https://www.seekpng.com/png/full/408-4089863_middlesex-university-is-a-dynamic-university-with-a.png" width="140" height="80" class="d-inline-block align-top" alt="">
+
+                      </a>                      </div>
+                    </div>
+                  </div>
+ 
+                </nav>
+                <br>
+
+                <div class="jumbotron card card-block">
+                    <h2>
+                        Well Done!
+                    </h2>
+                    <p>
+                        The buttons are not activated and you can start exploring the outputs.
+                    </p>
+
+                </div> 
+
+
+<center>
+                <div class="btn-group btn-group-lg" role="group">
+                    <a href="/original" class="btn active btn-secondary">Show Original Image</a>
+                    <a href="/preview" class="btn active btn-secondary"> Processing Glimpse</a>
+                    <a href="/canny" class="btn active btn-secondary"> Canny Edge Detection</a>
+                    <a href="/facedetection" class="btn active btn-secondary"> Face Detection</a>
+                    <a href="/facedetection" class="btn disabled btn-secondary"> ROI & Color Selection</a>
+                    <a href="/facedetection" class="btn disabled btn-secondary"> K Means Clustering</a>
+                    <a href="/facedetection" class="btn disabled btn-secondary"> U-Net Deeplearning</a>
+                </div>
+            </center>
+
+
+<br>
+
+{% if originalphotoshow %}
+
+<h1> Original Image Display</h1>
+
+<div class="table-responsive">
+    <caption>
+Displaying original image to meet first requirement in the assignment.</caption>
+    <table class="table table-bordered ">
+      <thead>
+        <tr>
+          <th scope="col"><center>Original Photo</center></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><center><img src="data:image/jpg;base64,{{originalphotoshow}}" width="500" height="333.71" alt="Not rendering"></center>
+          </td>
+        </tr>
+      </tbody>
+  
+
+  
+    </table>
+  </div>
+
+{% elif blur_show %}
+
+<h1> Glimpse of the image processing</h1>
+
+<div class="table-responsive">
+    <caption>
+A showcase diplay of processed image for blurring, RGB conversion and Grayscale. </caption>
+    <table class="table table-bordered ">
+      <thead>
+        <tr>
+          <th scope="col">Blurred Image</th>
+          <th scope="col">RGB</th>
+          <th scope="col">Grey</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><img src="data:image/jpg;base64,{{blur_show}}" width="500" height="333.71" alt="Not rendering">
+          </td>
+          <td><img src="data:image/jpg;base64,{{blobshow}}" width="500" height="333.71" alt="Not rendering">
+          </td>
+          <td><img src="data:image/jpg;base64,{{grayshow}}" width="500" height="333.71" alt="Not rendering">
+          </td>
+        </tr>
+      </tbody>
+  
+
+  
+    </table>
+  </div>
+
+{% elif wide_decode %}
+
+<h1> Hello Canny</h1>
+
+<div class="table-responsive">
+    <caption>
+Implementation of Canny Edge Detection using the Wide & Tight methods then implementing a threshold for optimal results.</caption>
+    <table class="table table-bordered ">
+      <thead>
+        <tr>
+          <th scope="col">Wide</th>
+          <th scope="col">Tight</th>
+          <th scope="col">With Threshold</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><img src="data:image/jpg;base64,{{wide_decode}}" width="500" height="333.71" alt="Not rendering">
+          </td>
+          <td><img src="data:image/jpg;base64,{{tight_decode}}" width="500" height="333.71" alt="Not rendering">
+          </td>
+          <td><img src="data:image/jpg;base64,{{edges_decode}}" width="500" height="333.71" alt="Not rendering">
+          </td>
+        </tr>
+      </tbody>
+  
+
+  
+    </table>
+</div>
+
+{% elif fd_show %}
+
+<h1> Where is the face?</h1>
+
+<div class="table-responsive">
+    <caption>
+Not requied, implemented using haar cascade as an extra work      </caption>
+    <table class="table table-bordered ">
+      <thead>
+        <tr>
+          <th scope="col"><center>Face Detection</center></th>
+
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><center><img src="data:image/jpg;base64,{{fd_show}}" width="500" height="333.71" alt="Not rendering"></center>
+
+        </tr>
+      </tbody>
+  
+
+  
+    </table>
+</div>
+{% endif %}
+
+
+
+</div>
+</div>
+</div>
+
+<script src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
+<script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+<script src="{{ url_for('static', filename='js/scripts.js') }}"></script>
+</body>
+</html>
