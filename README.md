@@ -1,7 +1,7 @@
-# Computer Vision Web Application - MSc Coursework
+# Computer Vision Web Application - MSc Coursework (2021)
 
 ## Overview
-A Flask-based web application that provides real-time image processing capabilities using OpenCV. This project was developed as part of a Master's degree in Data Science, demonstrating the practical implementation of various computer vision techniques.
+A Flask-based web application that provides real-time image processing capabilities using OpenCV. This project was developed as part of a Master's degree in Data Science (in 2021), demonstrating the practical implementation of various computer vision techniques.
 
 ## Features
 - **Image Upload**: Support for uploading images through a web interface
